@@ -1,3 +1,5 @@
+#BFS is the prefered solution, nevertheless I wanted to try implementing it with DFS for a change
+
 class Graph(object):
         
     def __init__(self,nodes):
