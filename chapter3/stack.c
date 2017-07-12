@@ -36,16 +36,16 @@ int pop(stack_t* s){
     return(num);
 }
 
-void display(stack_t s){
+void display(stack_t* s){
     int i;
-    if(s.top == -1){
+    if(s->top == -1){
         printf("Stack is empty \n");
         return;
     }
     else
     {
-       for(i=s.top;i>=0;i--){
-           printf("%d\n",s.stk[i]);
+       for(i=s->top;i>=0;i--){
+           printf("%d\n",s->stk[i]);
        }
     }
     printf("\n");
@@ -59,9 +59,9 @@ int main(){
     push(stack_test,12);
     push(stack_test,9);
     push(stack_test,10);
-    display(*stack_test);
+    display(stack_test);
     pop(stack_test);
-    display(*stack_test);
+    display(stack_test);
     free(stack_test);
      
 }
