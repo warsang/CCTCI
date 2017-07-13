@@ -18,7 +18,7 @@ def main():
     
     llist = [a,b,c,d,e,f]
 
-    deleteNode(c)
+    deleteNode(c,llist)
 
     Node = a
     while True:
@@ -29,15 +29,17 @@ def main():
             print( Node.name + "->")
             Node = Node.child
 
-def deleteNode(node):
+def deleteNode(node,llist):
     
-    if node.child is None:
-        return
-    replaceNodeByChild(node)
-
-def replaceNodeByChild(node):
-    node.name = node.child.name
-    node.child = node.child.child
+    head = llist[0]
+    while True:
+        if head.child is None:
+            break
+        if head.child == node:
+            head.child = head.child.child
+            break
+        else:
+            head = head.child
 
 if __name__ == "__main__":
     main()

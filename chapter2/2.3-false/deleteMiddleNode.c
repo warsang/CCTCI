@@ -16,11 +16,24 @@ typedef struct node{
 }node;
 
 
-void deleteNode(node* anode ){
+void deleteNode(node** llist,node* anode ){
 
-    anode->name = anode->child->name;
-    anode->child = anode->child->child;
-    
+    node* head = llist[0];
+
+    while(1){
+        if(head->child == 0){
+            break;
+        }
+        if(head->child == anode){
+            head->child = head->child->child;
+            //free the deleted node
+            free(anode);
+            break;
+        }
+        else{
+            head = head->child;
+        }
+    }
 }
 
 
@@ -57,8 +70,7 @@ void main(){
     llist[4] = e;
     llist[5] = f;
 
-    deleteNode(c);
-    free(d);
+    deleteNode(llist,c);
 
     a_node = a;
 
