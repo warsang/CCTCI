@@ -8,20 +8,20 @@
 #For each test case output will be 1 if C is interleaving of string A and B else 0.
 
 
-def isInterleaved(A,B,C,Aindex,Bindex,Cindex):
+def isInterleave(A,B,C,Aindex,Bindex,Cindex):
     #Step 1 compare char 1 of A and char1 of C
         #if match compare next character
-    if Cindex == len(C):
-        return True
-    if A[Aindex] == C[Cindex]:
-        Aindex +=1 
-        Cindex +=1
-        isInterleaved(A,B,C,Aindex,Bindex,Cindex)
-    elif B[Bindex] == C[Cindex]:
-        Cindex +=1
-        Bindex +=1
-        isInterleaved(A,B,C,Aindex,Bindex,Cindex)
+    if len(A) == 0:
+        return B == C
+    elif len(B) == 0:
+        return A == C
+    if A[0] == C[0] and B[0] == C[0]:
+        return max(isInterleave(A[1:],B,C[1:]),isInterleave(A,B[1:],C[1:]))
+    elif A[0] == C[0]:
+        return isInterleave(A[1:],B,C[1:])
+    elif B[0] == C[0]:
+        return isInterleave(A,B[1:],C[1:])
     else:
         return False
 
-print(isInterleaved('XYZA','BDC',"XYZABDC",0,0,0))
+print(isInterleave('XYZA','BDC',"XYZABDC",0,0,0))
