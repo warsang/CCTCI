@@ -8,6 +8,10 @@
 #For each test case output will be 1 if C is interleaving of string A and B else 0.
 
 
+#Time Complexity: For a string C of length N
+#O(1^N) if A == B O(2^N)
+#Memory Complexity:
+
 def isInterleave(A,B,C,Aindex,Bindex,Cindex):
     #Step 1 compare char 1 of A and char1 of C
         #if match compare next character
@@ -24,4 +28,4 @@ def isInterleave(A,B,C,Aindex,Bindex,Cindex):
     else:
         return False
 
-print(isInterleave('XYZA','BDC',"XYZABDC",0,0,0))
+print(isInterleave('XYZA','XDC',"XYZAXDC",0,0,0))
