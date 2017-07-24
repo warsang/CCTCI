@@ -5,7 +5,7 @@
 
 #Time Complexity: O(|V| +|E|) 
 #V = number of nodes, E = number of edges 
-def bfsearch(node):
+def bfsearch(node,searched):
     root = node
 
     queue = []
@@ -15,10 +15,13 @@ def bfsearch(node):
     while len(queue) != 0:
         #Remove first in
         anode = queue[0]
-        queue = queue[1:]
+        if len(queue) != 1:
+            queue = queue[1:]
+        else:
+            queue = []
         #Do something with anode
-        if anode == 5:
-            print(anode.value)
+        if anode.value == searched.value:
+            return anode
         for n in anode.adjacent:
             if n.marked == False:
                 n.marked = True

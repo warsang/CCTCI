@@ -30,7 +30,7 @@ def intersection(llist1,llist2):
     if llist1.tail is not llist2.tail:
         return False
     
-    shorter = llist1 if len(llist1) < len(llist2) else llis2
+    shorter = llist1 if len(llist1) < len(llist2) else llist2
     longer = llist2 if len(llist2) > len(llist1) else llist1
 
     diff = len(longer) - len(shorter)
