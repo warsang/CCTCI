@@ -1,6 +1,10 @@
 #BFS as described in CTCI p 108
 #Please note that node object needs adjacent attribute (list of adjacent nodes)
 
+
+
+#Time Complexity: O(|V| +|E|) 
+#V = number of nodes, E = number of edges 
 def bfsearch(node):
     root = node
 
