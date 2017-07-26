@@ -13,7 +13,7 @@ def bfsearch(node,searched):
     queue.append(root)
     
     while len(queue) != 0:
-        #Remove first in
+        #Remove first in queue
         anode = queue[0]
         if len(queue) != 1:
             queue = queue[1:]
