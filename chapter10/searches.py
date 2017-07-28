@@ -25,21 +25,21 @@ def linear_search(alist,value):
 def binary_search(alist,value):
 
     lowerBound = 0
-    upperBound = len(alist)
+    upperBound = len(alist) - 1
 
     while True:
         if upperBound < lowerBound:
             return None
 
-        mid = lowerBound + (upperBound - lowerBound)//2
-
-        if alist[mid] < value:
-            lowerBound = mid + 1
+        mid = (upperBound - lowerBound)//2
 
         if alist[mid] > value:
-            lowerBound = mid - 1
+            lowerBound = mid + 1
 
-        if alist[mid] == value:
+        elif alist[mid] < value:
+            upperBound = mid - 1
+
+        else: #if alist[mid] == value:
             return mid
 
 
