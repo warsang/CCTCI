@@ -7,8 +7,8 @@ def remove_duplicates(linked_list):
     value_counter = dict() 
     current = linked_list.head
     
-    value_counter[current.value] = 1
     while current.next is not None: #while current.next
+        value_counter[current.value] = 1
         if value_counter.get(current.next.value,0) == 1:
             #Remove element
             current.next = current.next.next

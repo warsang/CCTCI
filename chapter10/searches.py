@@ -1,17 +1,23 @@
 
-#Time complexity O(n)
+#Time complexity O(log(log(n)))
 def interpolation_Search(array,value):
     
     lowerBound = 0
     mid = -1
-    upperBound = 0
+    upperBound = len(array) - 1
+
     while True:
         if  lowerBound == upperBound or array[lowerBound] == array[upperBound]:
             return False
 
-        mid = lowerBound + ((upperBound - lowerBound)/(array[upperBound] -array[upperBound]- array[lowerBound])) * (value - array[lowerBound])
-	
+        mid = lowerBound + ((upperBound - lowerBound)/(array[upperBound] - array[lowerBound])) * (value - array[lowerBound])
 
+        if array[mid] ==  value:
+            return mid
+        elif  array[mid] < value:
+            lowerBound = mid + 1
+        else:
+            upperBound = mid - 1
 
 #Time complexity O(n)
 def linear_search(alist,value):
